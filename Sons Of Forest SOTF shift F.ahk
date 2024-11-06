@@ -7,7 +7,7 @@
             toggle := 0
         else
             toggle := 1
-        send "eeeeee"
+        send "eeeee"
         sleep 30
     }
     +x:: {
@@ -16,6 +16,6 @@
             toggle := 0
         else
             toggle := 1
-        send "xxxxxx"
+        send "xxxxx"
         sleep 30
     }

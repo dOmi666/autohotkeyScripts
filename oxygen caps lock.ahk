@@ -4,7 +4,6 @@
 #HotIf WinActive("ahk_exe OxygenNotIncluded.exe") 
 CapsLock:: {
 Send("\")
-;MsgBox ("test")
 }
 return
 
