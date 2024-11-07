@@ -4,7 +4,8 @@
 ; oxygen not included caps lock for copy build settings (caps lock for backslash)
 {
     #HotIf WinActive("ahk_exe OxygenNotIncluded.exe") 
-    Alt:: {
+    CapsLock::{
+        sleep(50)
         Send("\")
     }
     return
