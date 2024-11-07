@@ -129,3 +129,5 @@ CapsLock & Enter::{
 }
 
 #Include macrosAhkV2_context_sensitive.ahk
+
+f12::reload

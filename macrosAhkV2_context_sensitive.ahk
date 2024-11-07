@@ -129,3 +129,11 @@
 			return
 	}
 }
+
+
+; testing purposes
+{
+    #HotIf WinActive("ahk_exe winword.exe") 
+    CapsLock::\
+    return
+}
