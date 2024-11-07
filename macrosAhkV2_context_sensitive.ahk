@@ -1,10 +1,10 @@
 #Requires AutoHotkey 2
-#SingleInstance		; Only allows one instance of the script to run.
+#Warn
 
-; ; oxygen not included caps lock for copy build settings (caps lock for backslash)
+; oxygen not included caps lock for copy build settings (caps lock for backslash)
 {
     #HotIf WinActive("ahk_exe OxygenNotIncluded.exe") 
-    CapsLock:: {
+    Alt:: {
         Send("\")
     }
     return
@@ -14,6 +14,7 @@
 {
 	#HotIf WinActive("AHK_exe excel.exe")
 		F1::F2
+    return
 }
 
 ; Minecraft WASD & arrow keys work together
@@ -72,6 +73,7 @@
             TrayTip "Error", "Could not create the file."
         }
     }
+    return
 }
 
 
@@ -97,7 +99,7 @@
 
 {
     #HotIf WinActive("ahk_exe Palworld-Win64-Shipping.exe") 
-        CapsLock:: {
+        NumLock:: {
             static toggle := 0
             if (toggle = 1)
             {
@@ -110,6 +112,20 @@
                 send "{F down}"
             }
         }
+        return
 
 }
 
+;FAST REWRITE OR CORRECT ME TO WRITING write 'reqv2' = '#requires autohotkey v2.0'
+{
+	{
+		#hotif WinActive("AHK_exe notepad++.exe")
+			::reqv2::{#}requires autohotkey v2.0
+			return
+	}
+	{
+		#hotif WinActive("AHK_exe Code.exe")
+			::reqv2::{#}requires autohotkey v2.0
+			return
+	}
+}

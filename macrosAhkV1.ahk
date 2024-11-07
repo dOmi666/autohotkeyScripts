@@ -1,4 +1,5 @@
-﻿#include win D F only 1.ahk
+﻿#SingleInstance Force
+#include win D F only 1.ahk
 ;---------------- I N D E X ----------------
 /*
 |	14	|	WINDOWS + D WORKS ONLY MAIN MONITOR
@@ -24,7 +25,6 @@
 	Numlock & volume_down::Send {Media_Play_Pause}
 	Numlock & volume_mute::Send {Media_Prev}
 	Numlock & volume_up::Send {Media_next}
-	return
 }
 
 

@@ -1,6 +1,7 @@
+#Warn
 #requires autohotkey v2.0
 #SingleInstance Force
-#Include shortcut_hotkeys.ahk
+
 ;---------------- I N D E X ----------------
 /*
 |	17	|	MOVE MOUSE WITH HOTKEYS (CAPS LOCK + numpad(2+3+4+6+8)
@@ -16,7 +17,6 @@
 
 */
 ;MOVE MOUSE WITH HOTKEYS
-
 {
 	CoordMode "Mouse", "Screen"
 	
@@ -92,61 +92,40 @@
 	
 }
 
+
+{
+	alwaystopfunc(){
+		WinSetAlwaysOnTop -1
+		return
+	}
+	^!t::alwaystopfunc ;ctrl + alt + T
+}
+
 ;FAST KILL ALL EXPLORER.EXE AND START AGAIN CAPSLOCK + DELETE(NEAR PGUP-DPDN)
 {
-	{
-		CapsLock & Del::
-		{
-			try
-				{
-				While ProcessExist('explorer.exe')
-					ProcessClose 'explorer.exe'
-				}
-				Sleep 1000
-				run 'explorer.exe'
-		return
+	CapsLock & Del::{
+		try{
+			While ProcessExist('explorer.exe')
+				ProcessClose 'explorer.exe'
 		}
+		Sleep 1000
+		run 'explorer.exe'
+	return
 	}
 }
 
 
 ;FAST TASKMGR STARTER CAPSLOCK + ENTER
 {
-	CapsLock & Enter::{
-		if not WinExist("ahk_exe taskmgr.exe"){
-			Run "taskmgr.exe"
-		}
-		else{
-			WinActivate
-		}
+CapsLock & Enter::{
+	if not WinExist("ahk_exe taskmgr.exe"){
+		Run "taskmgr.exe"
 	}
-}
-
-
-;FAST REWRITE OR CORRECT ME TO WRITING write 'reqv2' = '#requires autohotkey v2.0'
-{
-	{
-		#hotif WinActive("AHK_exe notepad++.exe")
-			::reqv2::{#}requires autohotkey v2.0
-			return
+	else{
+		WinActivate
 	}
-	{
-		#hotif WinActive("AHK_exe Code.exe")
-			::reqv2::{#}requires autohotkey v2.0
-			return
-	}
-}
-
-
-
-
-
-
-{
-alwaystopfunc(){
-	WinSetAlwaysOnTop -1
 	return
 }
-^!t::alwaystopfunc ;ctrl + alt + T
 }
 
+#Include macrosAhkV2_context_sensitive.ahk
